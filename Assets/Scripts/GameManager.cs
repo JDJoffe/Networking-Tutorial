@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
 
     public void Load(string path)
     {
-       
+        var serializer = new XmlSerializer(typeof(GameData));
+        var stream = new FileStream(path, FileMode.Open);
+        data = serializer.Deserialize(stream) as GameData;
     }
     public void Save(string path)
     {
