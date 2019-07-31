@@ -54,7 +54,15 @@ public class GameManager : MonoBehaviour
                 "Hello",
                 "World"
             };
-            Save(Application.dataPath +"/"+ fileName);
+            Save(Application.dataPath + "/" + fileName);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Load(Application.dataPath + "/" + fileName);
+            _player = FindObjectOfType<PlayerScript>().transform;
+            _player.position = data._position;
+            _player.rotation = data._rotation;
+
         }
     }
 

@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <Game_x0020_Data_x0020_Collection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <_position>
-    <x>75.8776</x>
-    <y>1</y>
-    <z>-39.3795776</z>
+    <x>37.38315</x>
+    <y>1.00000012</y>
+    <z>38.7060661</z>
   </_position>
   <_rotation>
     <x>0</x>
-    <y>0.382683456</y>
+    <y>0.13052614</y>
     <z>0</z>
-    <w>-0.9238795</w>
+    <w>0.9914449</w>
     <eulerAngles>
       <x>-0</x>
-      <y>315</y>
+      <y>14.9999933</y>
       <z>0</z>
     </eulerAngles>
   </_rotation>
