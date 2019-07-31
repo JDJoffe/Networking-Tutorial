@@ -72,17 +72,19 @@ public class SyncTransform : NetworkBehaviour
     [ClientCallback]
     void TransmitPosition()
     {
-        if (isLocalPlayer)
+        if (isLocalPlayer && Vector3.Distance(_rigid.position, lastPosition) > _positionThreshold)
         {
             CmdSendPositionToServer(_rigid.position);
+            lastPosition = _rigid.position;
         }
     }
     [ClientCallback]
     void TransmitRotation()
     {
-        if (isLocalPlayer)
+        if (isLocalPlayer && Quaternion.Angle(_rigid.rotation, lastRotation) > _rotationThreshold)
         {
             CmdSendRotationToServer(_rigid.rotation);
+            lastRotation = _rigid.rotation;
         }
     }
     #endregion
