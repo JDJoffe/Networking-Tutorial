@@ -34,6 +34,7 @@ public class PlayerScript : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //can only move localplayer
         if (isLocalPlayer)
         {
@@ -74,6 +75,7 @@ public class PlayerScript : NetworkBehaviour
         _rigid.MovePosition(_pos);
         _rigid.MoveRotation(_rotation);
     }
+    
     void OnCollisionEnter(Collision _col)
     {
         _isGrounded = true;

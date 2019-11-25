@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09035e7a93e238e42abc9f346525e7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 3252052472484930937, guid: bec92da0d5ed2e64e921b59aaf7c1cd1, type: 3}
   fileName: GameData.xml
 --- !u!4 &1716350107
 Transform:

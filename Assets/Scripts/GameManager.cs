@@ -11,10 +11,11 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     public Transform _player;
+    // ref to gamedata
     private GameData data = new GameData();
     public string fileName = "GameData.xml";
 
-
+// load the data stored in the xml file
     public void Load(string path)
     {
         var serializer = new XmlSerializer(typeof(GameData));
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
         data = serializer.Deserialize(stream) as GameData;
         stream.Close();
     }
+    // write data to the xml file
     public void Save(string path)
     {
         var serializer = new XmlSerializer(typeof( GameData));
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // check inputs and save when you press O
         if (Input.GetKeyDown(KeyCode.O))
         {
             _player = FindObjectOfType<PlayerScript>().transform;
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
             };
             Save(Application.dataPath + "/" + fileName);
         }
+        // load data when you hit R
         if (Input.GetKeyDown(KeyCode.R))
         {
             Load(Application.dataPath + "/" + fileName);

@@ -25,11 +25,13 @@ public class SyncTransform : NetworkBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        // transmit pos then lerp it, transmit rot then lerp it
         TransmitPosition();
         LerpPosition();
 
@@ -37,6 +39,7 @@ public class SyncTransform : NetworkBehaviour
         LerpRotation();
     }
     #region Lerps
+    // lerp the position if they are not the player to make it smoother
     void LerpPosition()
     {
         //if not the local player
@@ -46,6 +49,7 @@ public class SyncTransform : NetworkBehaviour
             _rigid.position = Vector3.Lerp(_rigid.position, _syncPosition, Time.deltaTime * _lerpRate);
         }
     }
+    // lerp the rotation if they are not the player to make it smoother
     void LerpRotation()
     {
         //if not local player
@@ -57,7 +61,9 @@ public class SyncTransform : NetworkBehaviour
     }
     #endregion
     #region Serverstuff
+    // cmd commands for server data
     [Command]
+    
     void CmdSendPositionToServer(Vector3 _position)
     {
         _syncPosition = _position;
@@ -69,6 +75,7 @@ public class SyncTransform : NetworkBehaviour
         _syncRotation = _rotation;
         Debug.Log("Rotation Command");
     }
+    // on the client, transmit your current position when your distance between here and your last transmission is greater than the threshhold
     [ClientCallback]
     void TransmitPosition()
     {
